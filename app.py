@@ -36,9 +36,9 @@ if choose_state == "India":
     fig = plotly.express.scatter_map(data, lat = "Latitude", lon = "Longitude", height = 800, zoom = 4, size = sizes, hover_name = "District", color = colorr, color_continuous_scale = "viridis",  center={"lat": 22.5, "lon": 80.0})
 
 else:
-    center_lat = state_data["Latitude"].mean()
-    center_lon = state_data["Longitude"].mean()
     data = data[data["State"] == choose_state]
+    center_lat = data["Latitude"].mean()
+    center_lon = data["Longitude"].mean()
     fig = plotly.express.scatter_map(data, lat = "Latitude", lon = "Longitude", height = 800, zoom = 6, size = sizes, hover_name = "District", color = colorr, color_continuous_scale = "viridis", center={
             "lat": center_lat,
             "lon": center_lon
